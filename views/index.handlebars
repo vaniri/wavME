@@ -1,0 +1,26 @@
+<div id="user_container">
+  <h1>Create an account!</h1>
+   <h2>{{user}}</h2>
+   <h3>{{location}}</h3>
+   <h2>Favorite Artists:</h2>
+   <ul id="artists_table">
+        {{#each artists}}
+        <li class="artists_table">
+          {{name}}
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
+  <div class="form_group">
+    <h2>create a User</h2>
+    <form class="create_user">
+      <input type="text" id="user_name" name="name" placeholder="Enter name!" /><br>
+      <input type="text" id="user_email" name="email" placeholder="Enter e-mail!" /><br>
+      <input type="text" id="user_photo" name="photo" placeholder="Enter photo!" /><br>
+      <input type="text" id="user_location" name="location" placeholder="Enter location" /><br>
+      <button type="submit" id="add_user">SUBNMIT!</button>
+      <form>
+  </div>
+  </form>
+</div>
