@@ -6,6 +6,7 @@ const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
     notEmpty: true,
+    notNull: true,
     len: [2, 20],
     unique: true
   },
@@ -13,20 +14,24 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     isEmail: true,
     notEmpty: true,
+    notNull: true,
     unique: true
   },
   password: {
     type: DataTypes.STRING,
     notEmpty: true,
+    notNull: true,
     len: [2, 20]
   },
   photo: {
     type: DataTypes.STRING,
-    isUrl: true
+    isUrl: true,
+    notNull: true 
   },
   location: {
     type: DataTypes.STRING,
-    notEmpty: true
+    notEmpty: true,
+    notNull: true
   }
 });
 
@@ -65,4 +70,4 @@ User.sync();
 Artist.sync();
 UserArtist.sync();
 
-module.exports = { User, Artist };
+module.exports = { User, Artist, UserArtist };

@@ -5,17 +5,25 @@ const db = require('../../models/db');
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
+//insert user to the db and associate with the artists
 router.post('/users', async (req, res) => {
-  console.log(req.body);
-  let result = await db.User.create(req.body);
-  res.json(result);
+  let userRecord = await db.User.create(req.body);
+  let UserId = userRecord.id;
+  for (let artist of req.body.artists) {
+    let artistRecord = await db.Artist.findOne({ where: { name: artist } });
+    if (!artistRecord) {
+      artistRecord = await db.Artist.create({ name: artist });
+    }
+    let ArtistId = artistRecord.id;
+    await db.UserArtist.create({ UserId, ArtistId });
+  }
+  res.json({});
 });
 
 router.get('/users', async (req, res) => {
- let users = await db.User.findAll();
+  let users = await db.User.findAll();
   res.json({ users: users });
 });
-
 
 router.get('/users/:id', async (req, res) => {
   const user = await db.User.findAll({ where: { id: req.params.id } });
