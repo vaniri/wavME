@@ -1,20 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../models/db.js");
+const userArtist = require("../models/utils.js")
 
 
 //render main html page
 router.get("/", async (req, res) => {
-  res.render("index", { user: await userswithArtists() });
+  res.render("index", {});
 });
 
-async function userswithArtists() {
-  let usersWithArtists = await db.User.findAll({ include: [{ model: db.Artist, attributes: ["name"] }] });
-  let usersToRender = usersWithArtists.map(userAndArtists => {
-    let artists = userAndArtists.Artists.map(artist => ({ name: artist.name }));
-    return { ...userAndArtists.dataValues, artists };
-  })
-  return usersToRender;
-}
+//render allUserspage
+router.get("/all", async (req, res) => {
+  res.render("allUsers", { user: await userArtist.userswithArtists() });
+});
 
 module.exports = router;

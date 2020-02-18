@@ -2,12 +2,9 @@
 function findSimilarity(artists1, artists2) {
     if (artists1.length == 0 || artists2.length == 0) { return 0; }
 
-    let set = new Set(artists2);
-    console.log(set);
-    let xSet = artists1.filter(el => set.has(el));
-    console.log(xSet);
-    console.log(xSet.length / (artists1.length + artists2.length));
-    return xSet.length / (artists1.length + artists2.length);
+    let set = new Set(artists2.map(a => a.name.trim()));
+    let xSet = artists1.filter(el => set.has(el.name.trim()));
+    return 2 * xSet.length / (artists1.length + artists2.length);
 }
 
 //matching users using similarity
@@ -23,7 +20,6 @@ function findMatch(curUser, allUsers) {
         } else { return 0; }
     });
 
-    console.log(allUsers);
     //return 3 most similar users
     return allUsers.slice(0, 3);
 }

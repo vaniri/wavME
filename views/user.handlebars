@@ -1,0 +1,16 @@
+  <div class="user_container">
+    <hr>
+    <h2>User info:</h2>
+    <p><span>Username:</span> {{username}}</p>
+    <p><span>Location:</span> {{location}}</p>
+    <img class="user_photo" src="{{photo}}">
+    <h2>Favorite Artists:</h2>
+    <ul id="artists_table">
+      {{#each artists}}
+      <li class="artists_table">
+        {{name}}
+      </li>
+      {{/each}}
+    </ul>
+    <hr>
+</div>
