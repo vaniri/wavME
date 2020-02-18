@@ -17,3 +17,11 @@ input {
   color: white;
   cursor: pointer;
 }
+
+.user_photo {
+  width: 30%;
+}
+
+span {
+  color: royalblue;
+}

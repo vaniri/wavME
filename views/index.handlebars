@@ -1,8 +1,9 @@
 <div id="user_container">
   <h2>User info:</h2>
   {{#each user}}
-  <h2>{{username}}</h2>
-  <h3>{{location}}</h3>
+  <p><span>Username:</span> {{username}}</p>
+  <p><span>Location:</span> {{location}}</p>
+  <img class="user_photo" src="{{photo}}">
   <h2>Favorite Artists:</h2>
   <ul id="artists_table">
     {{#each artists}}

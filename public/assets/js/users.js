@@ -14,4 +14,5 @@ $("#add_user").on("click", event => {
     $.post("/users/users", newUser, () => {
         console.log(newUser);
     });
+
 })

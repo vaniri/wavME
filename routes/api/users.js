@@ -25,14 +25,12 @@ router.get('/users', async (req, res) => {
   res.json({ users: users });
 });
 
-router.get('/users/:id', async (req, res) => {
-  const user = await db.User.findAll({ where: { id: req.params.id } });
+router.get('/users/match/:id', async (req, res) => { 
+  const user = await db.User.findOne({ where: { id: req.params.id } });
   res.json(user);
 });
 
-router.put('/users/:id', async (req, res) => {
-  const result = await db.User.update(req.body, { where: { id: req.params.id } });
-  res.json(result);
-});
+
+
 
 module.exports = router;
