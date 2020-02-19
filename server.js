@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use(require('./routes/htmlRoutes'));
-app.use(require('./routes/api/index'));
+app.use(require('./routes/api'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
