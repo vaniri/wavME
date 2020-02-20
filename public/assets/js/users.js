@@ -33,7 +33,7 @@ $("#user_name").on("blur", () => {
 
 //get user data from last.fm
 function getLfArtists(userName) {
-    $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=""&format=json`,
+    $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
         (res) => {
             if (!res) {
                 console.log("FAIL get data");
@@ -48,7 +48,7 @@ function getLfArtists(userName) {
 //displaying current user 
 function showCurUser(user) {
     $("#form_container").css('display', 'none');
-    $("#form_user_container").append(`<p><span>Username:</span> ${user.username}</p><p><span>Location:</span> ${user.location}</p><img class='user_photo' src='${user.photo}'>`);
+    $("#form_user_container").append(`<p><span>Username:</span> ${user.username}</p><p><span>Location:</span>${user.location}</p><img class='user_photo' src='${user.photo}'>`);
 
     $("#form_user_container").append("<h2>Favorite Artists:</h2><ul class='artists_table'></ul>");
     user.artists.forEach(artist => {
@@ -91,16 +91,15 @@ function errorFunction(arg) {
 
 function codeLatLng(lat, lng) {
     const geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(lat, lng);
+    let latlng = new google.maps.LatLng(lat, lng);
     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
                 //find country name
-                for (var i = 0; i < results[0].address_components.length; i++) {
-                    for (var b = 0; b < results[0].address_components[i].types.length; b++) {
+                for (let i = 0; i < results[0].address_components.length; i++) {
+                    for (let b = 0; b < results[0].address_components[i].types.length; b++) {
                         //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
                         if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
-                            //this is the object you are looking for
                             city = results[0].address_components[i];
                             break;
                         }
