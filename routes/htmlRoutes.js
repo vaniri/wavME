@@ -11,7 +11,9 @@ router.get("/", async (req, res) => {
 
 //render allUserspage
 router.get("/all", async (req, res) => {
-  res.render("allUsers", { user: await userArtist.userswithArtists() });
+  let foo = await userArtist.userswithArtists();
+  console.log(foo);
+  res.render("allusers", { user: await userArtist.userswithArtists() });
 });
 
 module.exports = router;

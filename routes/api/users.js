@@ -29,12 +29,21 @@ router.post('/', async (req, res) => {
 });
 
 //get users who match with current user
-router.get('/match/:id', async (req, res) => { 
-  let allUsers = await usersArtists.userswithArtists();
-  let otherUsers = allUsers.filter(user => user.id !== +req.params.id);
-  let curUser = allUsers.find(user => user.id === +req.params.id);
-  let result = matching.findMatch(curUser, otherUsers);
-  res.json(result);
+router.get('/match/:id', async (req, res) => {
+  try {
+    let allUsers = await usersArtists.userswithArtists();
+    let otherUsers = allUsers.filter(user => user.id !== +req.params.id);
+    let curUser = allUsers.find(user => user.id === +req.params.id);
+    if (!curUser) { 
+      console.warn("No user found!");
+      res.json({ message: "FAIL", reason: "no user found" });
+      return;
+    }
+    let result = matching.findMatch(curUser, otherUsers);
+    res.json({ result, message: "OK" });
+  } catch (err) {
+    res.json({ message: "FAIL", reason: err });
+  }
 });
 
 

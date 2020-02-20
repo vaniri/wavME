@@ -13,10 +13,13 @@ $("#add_user").on("click", event => {
     //send newUser to the server
     $.post("/users/", newUser, (res) => {
         if (res.message === "OK") {
-            console.log(res.userId);
-            //get user with certain id
+            //get user match 
             $.get("/users/match/" + res.userId, (res) => {
-                console.log(res);
+                if (res.message !== "OK") { 
+                    console.log("FAIL matching");
+                    return;
+                }
+                showMatch(res.result);
             })
             showCurUser(newUser);
         } else { console.log("Failed creating new user"); }
@@ -31,4 +34,17 @@ function showCurUser(user) {
     user.artists.forEach(artist => {
         $(".artists_table").append(`<li class='artist'>${artist}</li>`);
     })
+}
+
+//displaying user match
+function showMatch(users) {
+    let source = $("#template-hbs").html();
+    //https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string
+    source = source.replace(/\[/g, "{").replace(/\]/g, "}");
+    const template = Handlebars.compile(source);
+    let html = {
+        user: users
+    };
+    let theCompiledHtml = template(html);
+    $('#matching_container').append(theCompiledHtml );
 }

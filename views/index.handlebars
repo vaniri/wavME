@@ -2,15 +2,47 @@
   <div id="form_container">
     <h2>Create an account!</h2>
     <form class="create_user">
-      <input class="user_input" type="text" id="user_name" name="name" placeholder="name" /><br>
-      <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail" /><br>
-      <input class="user_input" type="text" id="user_password" name="password" placeholder="password" /><br>
-      <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo" /><br>
-      <input class="user_input" type="text" id="user_location" name="location" placeholder="location" /><br>
-      <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name" /><br>
-      <button type="submit" id="add_user">SUBNMIT!</button>
+      <input class="user_input" type="text" id="user_name" name="name" placeholder="name" value="testUser" /><br>
+      <span class="spin"></span>
+      <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail"
+        value="testUser@gmail.com" /><br>
+      <input class="user_input" type="text" id="user_password" name="password" placeholder="password"
+        value="123456" /><br>
+      <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo"
+        value="https://www.washingtonpost.com/resizer/uwlkeOwC_3JqSUXeH8ZP81cHx3I=/arc-anglerfish-washpost-prod-washpost/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg" /><br>
+      <input class="user_input" type="text" id="user_location" name="location" placeholder="location"
+        value="New York" /><br>
+      <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name"
+        value="U2, AC/DC, The Beatles, Prince, Santana" /><br>
+      <button type="submit" id="add_user">SUBMIT!</button>
     </form>
   </div>
 </div>
 
+<script id="template-hbs" type="text/x-handlebars-template">
+  <div id="usersmatch_container">
+    [{#each user}]
+    <div class="user_container">
+        <hr>
+        <p><span>Username:</span> [{username}]</p>
+        <p><span>Location:</span> [{location}]</p>
+        <img class="user_photo_main" src="[{photo}]">
+        <h2>Favorite Artists:</h2>
+        <ul class="artists_table">
+            [{#each artists}]
+            <li class="artists">
+                [{name}]
+            </li>
+            [{/each}]
+        </ul>
+        <hr>
+    </div>
+    [{/each}]
+</div>
+</script>
+
+<div id="matching_container"></div>
+
 <p><a href="/all">All Users List</a></p>
+
+ 
