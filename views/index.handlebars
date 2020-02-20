@@ -1,7 +1,7 @@
 <div id="form_user_container">
   <div id="form_container">
     <form class="create_user">
-        <h2>Create an account!</h2>
+      <h2 id="create_acc">Create an account!</h2>
       <input class="user_input" type="text" id="user_name" name="name" placeholder="name" value="testUser" /><br>
       <span class="spin"></span>
       <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail"
@@ -10,8 +10,7 @@
         value="123456" /><br>
       <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo"
         value="https://www.washingtonpost.com/resizer/uwlkeOwC_3JqSUXeH8ZP81cHx3I=/arc-anglerfish-washpost-prod-washpost/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg" /><br>
-      <input class="user_input" type="text" id="user_location" name="location" placeholder="location"
-        value="New York" /><br>
+      <input class="user_input" type="text" id="user_location" name="location" placeholder="location"/><br>
       <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name"
         value="U2, AC/DC, The Beatles, Prince, Santana" /><br>
       <button type="submit" id="add_user">SUBMIT!</button>
@@ -43,6 +42,8 @@
 
 <div id="matching_container"></div>
 
-<p><a href="/all">All Users List</a></p>
+<p id="allusers_link"><a href="/all">All Users List</a></p>
 
- 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=""></script>
+<script src="/assets/js/users.js"></script>
+
