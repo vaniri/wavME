@@ -7,15 +7,15 @@ $("#add_user").on("click", event => {
     let photo = $("#user_photo").val();
     let location = $("#user_location").val();
     let artists = $("#user_artists").val().toLowerCase().split(",").map(artist => artist.trim());
-
     let newUser = { username, email, password, photo, location, artists };
+
 
     //send newUser to the server
     $.post("/users/", newUser, (res) => {
         if (res.message === "OK") {
             //get user match 
             $.get("/users/match/" + res.userId, (res) => {
-                if (res.message !== "OK") { 
+                if (res.message !== "OK") {
                     console.log("FAIL matching");
                     return;
                 }
@@ -25,6 +25,25 @@ $("#add_user").on("click", event => {
         } else { console.log("Failed creating new user"); }
     });
 })
+
+//send username to the lastFm after enter
+$("#user_name").on("blur", () => {
+    getLfArtists($("#user_name").val());
+})
+
+//get user data from last.fm
+function getLfArtists(userName) {
+    $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
+        (res) => {
+            if (!res) {
+                console.log("FAIL get data");
+                return;
+            } else {
+                let artists = res.topartists.artist.map(artist => artist.name);
+                $("#user_artists").val(artists);
+            }
+        });
+}
 
 //displaying current user 
 function showCurUser(user) {
@@ -46,5 +65,6 @@ function showMatch(users) {
         user: users
     };
     let theCompiledHtml = template(html);
-    $('#matching_container').append(theCompiledHtml );
+    $('#matching_container').append(theCompiledHtml);
 }
+
