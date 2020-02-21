@@ -157,3 +157,14 @@ h2{
 color: #fc5356;
 font-family: 'Lato';
 }
+
+#navbar {
+  text-align: center;
+}
+
+#navbar_img {
+  width: 12%;
+  border-radius: 67px;
+  padding: 1em;
+  margin: 0 auto;
+}
