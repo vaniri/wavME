@@ -22,9 +22,9 @@
   <div id="usersmatch_container">
     [{#each user}]
     <div class="user_container">
-        <hr>
-        <p><span>Username:</span> [{username}]</p>
-        <p><span>Location:</span> [{location}]</p>
+        <h2>User info:</h2>
+        <p class="pop"><span class="yellow">Username:</span> [{username}]</p>
+        <p class="pop"><span class="yellow">Location:</span> [{location}]</p>
         <img class="user_photo_main" src="[{photo}]">
         <h2>Favorite Artists:</h2>
         <ul class="artists_table">
@@ -34,7 +34,6 @@
             </li>
             [{/each}]
         </ul>
-        <hr>
     </div>
     [{/each}]
 </div>
