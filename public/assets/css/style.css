@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato|Poppins|Source+Code+Pro&display=swap');
+
 body {
   background-color: #202322;
 }
@@ -86,9 +89,10 @@ input {
   width: 100%;
 }
 
-span {
-  color: #802094;
+.yellow {
   font-weight: 600;
+  font-family: 'Poppins';
+  color: #B9C558;
 }
 
 #form_user_container {
@@ -118,10 +122,17 @@ a {
   font-weight: 600;
 }
 
-li,
-p {
-  color: #eaeaea;
+li {
+    color: #eaeaea;
+    font-family: 'Source Code Pro';
 }
+
+.pop{
+  color:#eaeaea;
+  font-family: 'Source Code Pro';
+}
+
+
 
 #usersmatch_container {
   display: grid;
@@ -141,4 +152,8 @@ hr {
 
 #allusers_link {
   text-align: center;
+}
+h2{
+color: #fc5356;
+font-family: 'Lato';
 }
