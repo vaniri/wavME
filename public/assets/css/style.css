@@ -1,43 +1,144 @@
 body {
-  background-color: #f2f3f3;
+  background-color: #202322;
 }
 
 .user_container {
-  background-color: lightgrey;
+  background-color: #202322;
   padding: 1em 1.5em;
-  margin: 1em;
+  margin: 1em auto;
+  width: 80%;
+}
+
+form {
+  width: 30%;
+  margin: auto;
+  background-color: #ed143de6;
+  padding: 49px 36px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 input {
   margin: 0.3em 0;
-  width: 30%;
+  width: 100%;
+  background-color: initial;
+  border: none;
+  border-bottom: 0.2px solid tomato;
+  color: white;
+  padding: 2px 0 10px 0;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 #add_user {
-  padding: 0.6em 2em;
+  background-color: #eaeaea;
+  padding: 0.8em 3em;
   border-radius: 8px;
-  margin: 1em 0;
+  margin: 2em 0 0 0;
   border: none;
+  color: black;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #add_user:hover {
-  background-color: royalblue;
+  background-color: #f96167;
   color: white;
   cursor: pointer;
 }
 
+#add_user:hover {
+  animation: pulse 1.5s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #f96167;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px #f96167;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(242, 56, 56, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 #f96167;
+    box-shadow: 0 0 0 0 #f96167;
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 20px rgba(242, 56, 56, 0);
+    box-shadow: 0 0 0 20px rgba(242, 56, 56, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(242, 56, 56, 0);
+    box-shadow: 0 0 0 0 rgba(242, 56, 56, 0);
+  }
+}
+
 .user_photo {
-  width: 30%;
+  width: 90%;
+}
+
+.user_photo_main {
+  width: 100%;
 }
 
 span {
-  color: royalblue;
+  color: #802094;
   font-weight: 600;
 }
 
+#form_user_container {
+  background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/58/headphones-690685__340.jpg);
+  background-color: #1f2221;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  background-position: center;
+  width: 70%;
+  margin: 3em auto;
+  padding: 3em 0;
+}
+
 #form_container {
-  background-color: lightgray;;
-  padding: 1em 1.5em;
-  margin: 1em;
+  text-align: center;
+}
+
+#create_acc {
+  color: blanchedalmond;
+  margin: 0 0 1em 0;
+  font-weight: 800;
+}
+
+a {
+  color: blanchedalmond;
+  font-weight: 600;
+}
+
+li,
+p {
+  color: #eaeaea;
+}
+
+#usersmatch_container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+#allUsers_container{
+  background-color: #FC5356;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+hr {
+  border: solid 0.3px #f96167;
+}
+
+#allusers_link {
   text-align: center;
 }
