@@ -1,25 +1,44 @@
-
-@import url('https://fonts.googleapis.com/css?family=Lato|Poppins|Source+Code+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato|Poppins|Source+Code+Pro&display=swap");
 
 body {
   background-color: #202322;
 }
 
-.user_container {
-  background-color: #202322;
-  padding: 1em 1.5em;
-  margin: 1em auto;
-  width: 80%;
-  border: solid 3px #F96167;
+#navbar {
+  text-align: center;
+}
+
+#navbar_img {
+  width: 10%;
+  border-radius: 67px;
+  padding: 1em;
+  margin: 0 auto;
 }
 
 form {
-  width: 30%;
+  width: 35%;
   margin: auto;
   background-color: #ed143de6;
-  padding: 49px 36px 20px;
+  padding: 27px 36px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#form_user_container {
+  background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/58/headphones-690685__340.jpg);
+  background-color: #1f2221;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  background-position: center;
+  width: 70%;
+  margin: 2em auto;
+  padding: 5em 0;
+  text-align: center;
+}
+
+#login {
+  margin: 1em 0;
 }
 
 input {
@@ -34,11 +53,18 @@ input {
   font-weight: 400;
 }
 
-#add_user {
+#create_acc {
+  color: blanchedalmond;
+  margin: 0 0 1em 0;
+  font-weight: 800;
+}
+
+#add_user,
+#log_in {
   background-color: #eaeaea;
   padding: 0.8em 3em;
   border-radius: 8px;
-  margin: 2em 0 0 0;
+  margin: 2em 0;
   border: none;
   color: black;
   font-size: 12px;
@@ -46,22 +72,24 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#add_user:hover {
+#add_user:hover,
+#log_in:hover  {
   background-color: #f96167;
   color: white;
   cursor: pointer;
 }
 
-#add_user:hover {
+#add_user:hover,
+#log_in:hover {
   animation: pulse 1.5s infinite;
 }
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 #f96167;
+    -webkit-box-shadow: 0 0 0 0 #f29094;
   }
   70% {
-    -webkit-box-shadow: 0 0 0 10px #f96167;
+    -webkit-box-shadow: 0 0 0 10px #f29094;
   }
   100% {
     -webkit-box-shadow: 0 0 0 0 rgba(242, 56, 56, 0);
@@ -69,8 +97,8 @@ input {
 }
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 #f96167;
-    box-shadow: 0 0 0 0 #f96167;
+    -moz-box-shadow: 0 0 0 0 #f29094;
+    box-shadow: 0 0 0 0 #f29094;
   }
   70% {
     -moz-box-shadow: 0 0 0 20px rgba(242, 56, 56, 0);
@@ -82,40 +110,41 @@ input {
   }
 }
 
-.user_photo {
-  width: 90%;
-}
-
 .user_photo_main {
   width: 100%;
 }
 
-.yellow {
+h2 {
+  color: #fc5356;
+  font-family: "Lato";
+}
+
+.user_photo {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+#curuser_container {
+  display: none;
+  grid-template-columns: 68% 38%;
+  margin: 1em auto;
+  padding: 2em;
+  width: 95%;
+}
+
+#curuser_artists {
+  text-align: right;
+}
+
+.artist {
+  text-align: -webkit-match-parent;
+}
+
+.username_loc {
   font-weight: 600;
-  font-family: 'Poppins';
-  color: #B9C558;
-}
-
-#form_user_container {
-  background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/58/headphones-690685__340.jpg);
-  background-color: #1f2221;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: white;
-  background-position: center;
-  width: 70%;
-  margin: 3em auto;
-  padding: 3em 0;
-}
-
-#form_container {
-  text-align: center;
-}
-
-#create_acc {
-  color: blanchedalmond;
-  margin: 0 0 1em 0;
-  font-weight: 800;
+  font-family: "Poppins";
+  color: #b9c558;
 }
 
 a {
@@ -124,53 +153,43 @@ a {
 }
 
 li {
-    color: #eaeaea;
-    font-family: 'Source Code Pro';
+  color: #eaeaea;
+  font-family: "Source Code Pro";
+  text-align: -webkit-match-parent;
 }
 
-.pop{
-  color:#eaeaea;
-  font-family: 'Source Code Pro';
+.users_p {
+  color: #eaeaea;
+  font-family: "Source Code Pro";
 }
-
-
 
 #usersmatch_container {
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
 
-#allUsers_container{
-  background-color: #FC5356;
+.usermatch_info {
+  border: solid 2px #b9c558;
+  margin: 0 0.5em;
+  padding: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#allUsers_container {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 1em auto;
 }
 
-hr {
-  border: solid 0.3px #f96167;
+.allusers_info {
+  background-color: #202322;
+  padding: 1.5em;
+  margin: 0.5em;
+  border: solid 2px #fc5356;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #allusers_link {
   text-align: center;
-}
-h2{
-color: #fc5356;
-font-family: 'Lato';
-}
-
-#navbar {
-  text-align: center;
-}
-
-#navbar_img {
-  width: 12%;
-  border-radius: 67px;
-  padding: 1em;
-  margin: 0 auto;
-}
-
-.user_photo {
-  border-radius: 50%;
-  width: 30%;
 }

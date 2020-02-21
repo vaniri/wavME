@@ -47,10 +47,10 @@ function getLfArtists(userName) {
 
 //displaying current user 
 function showCurUser(user) {
-    $("#form_container").css('display', 'none');
-    $("#form_user_container").append(`<div><p class="pop"><span class="yellow">Username:</span> ${user.username}</p><p class='pop'><span class='yellow'>Location:</span>${user.location}</p><img class='user_photo' src='${user.photo}'></div>`);
-
-    $("#form_user_container").append("<h2>Favorite Artists:</h2><ul class='artists_table'></ul>");
+    $("#form_user_container").css('display', 'none');
+    $("#curuser_container").css('display', 'grid');
+    $("#curuser_container").append(`<div id='curuser_info'><p class='users_p'><span class='username_loc'>Username:</span> ${user.username}</p><p class='users_p'><span class='username_loc'>Location:</span>${user.location}</p><img class='user_photo' src='${user.photo}'></div>`);
+    $("#curuser_container").append("<div id='curuser_artists'><h2>Favorite Artists:</h2><ul class='artists_table'></ul></div>");
     user.artists.forEach(artist => {
         $(".artists_table").append(`<li class='artist'>${artist}</li>`);
     })
@@ -118,5 +118,4 @@ function codeLatLng(lat, lng) {
         }
     });
 }
-
 

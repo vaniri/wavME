@@ -1,5 +1,5 @@
 <div id="form_user_container">
-  <div id="form_container">
+  <div id="create">
     <form class="create_user">
       <h2 id="create_acc">Create an account!</h2>
       <input class="user_input" type="text" id="user_name" name="name" placeholder="name" value="testUser" /><br>
@@ -10,22 +10,33 @@
         value="123456" /><br>
       <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo"
         value="https://www.washingtonpost.com/resizer/uwlkeOwC_3JqSUXeH8ZP81cHx3I=/arc-anglerfish-washpost-prod-washpost/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg" /><br>
-      <input class="user_input" type="text" id="user_location" name="location" placeholder="location"/><br>
+      <input class="user_input" type="text" id="user_location" name="location" placeholder="location" /><br>
       <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name"
         value="U2, AC/DC, The Beatles, Prince, Santana" /><br>
       <button type="submit" id="add_user">SUBMIT!</button>
     </form>
   </div>
+  <div id="login">
+    <form class="login_user">
+      <input class="user_input" type="text" id="existuser_email" name="email" placeholder="e-mail"
+        value="testUser@gmail.com" /><br>
+      <input class="user_input" type="text" id="existuser_password" name="password" placeholder="password"
+        value="123456" /><br>
+      <button type="submit" id="log_in">LOG IN!</button>
+    </form>
+  </div>
 </div>
+
+<div id="curuser_container"></div>
 
 <script id="template-hbs" type="text/x-handlebars-template">
   <div id="usersmatch_container">
     [{#each user}]
-    <div class="user_container">
+    <div class="usermatch_info">
         <h2>User info:</h2>
-        <p class="pop"><span class="yellow">Username:</span> [{username}]</p>
-        <p class="pop"><span class="yellow">Location:</span> [{location}]</p>
-        <img class="user_photo_main" src="[{photo}]">
+        <p class="users_p"><span class="username_loc">Username:</span> [{username}]</p>
+        <p class="users_p"><span class="username_loc">Location:</span> [{location}]</p>
+        <img class="user_photo" src="[{photo}]">
         <h2>Favorite Artists:</h2>
         <ul class="artists_table">
             [{#each artists}]
@@ -45,4 +56,3 @@
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key="></script>
 <script src="/assets/js/users.js"></script>
-
