@@ -93,7 +93,10 @@ function codeLatLng(lat, lng) {
     const geocoder = new google.maps.Geocoder();
     let latlng = new google.maps.LatLng(lat, lng);
     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        console.log(results);
         if (status == google.maps.GeocoderStatus.OK) {
+            console.log(results[1]);
+            console.log(results[0]);
             if (results[1]) {
                 //find country name
                 for (let i = 0; i < results[0].address_components.length; i++) {
