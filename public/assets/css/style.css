@@ -10,6 +10,7 @@ body {
   padding: 1em 1.5em;
   margin: 1em auto;
   width: 80%;
+  border: solid 3px #F96167;
 }
 
 form {
@@ -167,4 +168,9 @@ font-family: 'Lato';
   border-radius: 67px;
   padding: 1em;
   margin: 0 auto;
+}
+
+.user_photo {
+  border-radius: 50%;
+  width: 30%;
 }

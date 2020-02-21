@@ -48,7 +48,7 @@ function getLfArtists(userName) {
 //displaying current user 
 function showCurUser(user) {
     $("#form_container").css('display', 'none');
-    $("#form_user_container").append(`<p><span>Username:</span> ${user.username}</p><p><span>Location:</span>${user.location}</p><img class='user_photo' src='${user.photo}'>`);
+    $("#form_user_container").append(`<div><p class="pop"><span class="yellow">Username:</span> ${user.username}</p><p class='pop'><span class='yellow'>Location:</span>${user.location}</p><img class='user_photo' src='${user.photo}'></div>`);
 
     $("#form_user_container").append("<h2>Favorite Artists:</h2><ul class='artists_table'></ul>");
     user.artists.forEach(artist => {
