@@ -127,15 +127,11 @@ h2 {
 
 #curuser_container {
   display: none;
-  grid-template-columns: 68% 38%;
   margin: 1em auto;
   padding: 2em;
   width: 95%;
 }
 
-#curuser_artists {
-  text-align: right;
-}
 
 .artist {
   text-align: -webkit-match-parent;
