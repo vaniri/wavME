@@ -1,5 +1,5 @@
 const sequelize = require('../config/config');
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize');
 
 //defining user table
 const User = sequelize.define('User', {
@@ -65,6 +65,7 @@ const UserArtist = sequelize.define('UserArtist', {
 //conecting users table with authors table
 User.belongsToMany(Artist, { through: "UserArtist" });
 Artist.belongsToMany(User, { through: "UserArtist" });
+
 
 User.sync();
 Artist.sync();

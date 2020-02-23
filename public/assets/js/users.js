@@ -9,30 +9,62 @@ $("#add_user").on("click", event => {
     let artists = $("#user_artists").val().toLowerCase().split(",").map(artist => artist.trim());
     let newUser = { username, email, password, photo, location, artists };
 
-
     //send newUser to the server
     $.post("/users/", newUser, (res) => {
+        console.log(res);
         if (res.message === "OK") {
-            //get user match 
-            $.get("/users/match/" + res.userId, (res) => {
-                if (res.message !== "OK") {
-                    console.log("FAIL matching");
-                    return;
-                }
-                showMatch(res.result);
-            })
+            localStorage.token = res.token;
+
+            getUserMatch(res.userId);
             showCurUser(newUser);
         } else { console.log("Failed creating new user"); }
     });
-})
+});
+
+function getUserMatch(userId) {
+    $.ajax({
+        type: "GET",
+        url: "/users/match/" + userId,
+        beforeSend: xhr => {
+            if (localStorage.token) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
+            }
+        },
+        success: res => {
+            if (res.message !== "OK") {
+                console.log("FAIL matching", res);
+                return;
+            }
+            showMatch(res.result);
+        }
+    });
+}
+
+$("#log_in").on("click", event => {
+    event.preventDefault();
+    let email = $("#existuser_email").val();
+    let password = $("#existuser_password").val();
+
+    let existUser = { email, password };
+
+    $.post("/users/login", existUser, (res) => {
+        if (res.message !== "OK") {
+            console.log("Login failed");
+        }
+
+        localStorage.token = res.token;
+        getUserMatch(res.userId);
+        showCurUser(res.profile);
+    });
+});
 
 //send username to the lastFm after enter
 $("#user_name").on("blur", () => {
-    getLfArtists($("#user_name").val());
-})
+    getLfArtistsFromLastFm($("#user_name").val());
+});
 
 //get user data from last.fm
-function getLfArtists(userName) {
+function getLfArtistsFromLastFm (userName) {
     $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
         (res) => {
             if (!res) {
@@ -95,8 +127,6 @@ function codeLatLng(lat, lng) {
     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
         console.log(results);
         if (status == google.maps.GeocoderStatus.OK) {
-            console.log(results[1]);
-            console.log(results[0]);
             if (results[1]) {
                 //find country name
                 for (let i = 0; i < results[0].address_components.length; i++) {
@@ -118,4 +148,3 @@ function codeLatLng(lat, lng) {
         }
     });
 }
-
