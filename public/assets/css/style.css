@@ -4,15 +4,61 @@ body {
   background-color: #202322;
 }
 
-#navbar {
+.navbar {
   text-align: center;
+  border-bottom: 1px solid #ed143de6;
+  border-top: 1px solid #ed143de6;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
 
-#navbar_img {
-  width: 10%;
+#nav_img {
   border-radius: 67px;
-  padding: 1em;
-  margin: 0 auto;
+}
+
+
+.logo {
+    margin-right: 5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    text-decoration: none;
+    padding: 1em 0;
+    font-family: "Source Code Pro";
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+a {
+  color: #333;
+    text-decoration: underline;
+    background-color: transparent;
+    font-weight: 600;
 }
 
 form {
@@ -31,9 +77,9 @@ form {
   background-size: cover;
   background-color: white;
   background-position: center;
-  width: 70%;
-  margin: 2em auto;
-  padding: 5em 0;
+  width: 80%;
+  margin: 4em auto;
+  padding: 3em 0;
   text-align: center;
 }
 
@@ -175,7 +221,7 @@ li {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 1em auto;
+  margin: 3em auto;
 }
 
 .allusers_info {
@@ -189,3 +235,8 @@ li {
 #allusers_link {
   text-align: center;
 }
+
+.match {
+  color: red;
+}
+
