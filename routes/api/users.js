@@ -93,38 +93,4 @@ router.post('/login', async (req, res) => {
   }
 })
 
-
-//spotify
-/*
-
-var SpotifyWebApi = require('spotify-web-api-node');
-var spotifyApi = new SpotifyWebApi({
-  clientId: '973c7a45dcef46e299c4aad1b3bb7587',
-  clientSecret: 'd689a6efdce44903bf6f106d648df32e',
-
-});
-
-spotifyApi.clientCredentialsGrant().then(
-  function (data) {
-    console.log('The access token expires in ' + data.body['expires_in']);
-    console.log('The access token is ' + data.body['access_token']);
-
-    // Save the access token so that it's used in future calls
-    spotifyApi.setAccessToken(data.body['access_token']);
-
-    spotifyApi.getUserPlaylists('petteralexis')
-      .then(function (data) {
-        let newdata = data.body.items.map(item => item);
-        console.log("new data", newdata);
-        console.log('Some information about this user', data.body.items[0].tracks);
-      }, function (err) {
-        console.log('Something went wrong!', err);
-      });
-  },
-  function (err) {
-    console.log('Something went wrong when retrieving an access token', err);
-  }
-);
-*/
-
 module.exports = router;

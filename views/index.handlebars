@@ -2,16 +2,18 @@
   <div id="create">
     <form class="create_user">
       <h2 id="create_acc">Create an account!</h2>
-      <input class="user_input" type="text" id="user_name" name="name" placeholder="name"/><br>
+      <input class="user_input" type="text" id="user_name" name="name" placeholder="name/last_fm nickname" /><br>
       <span class="spin"></span>
-      <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail"/><br>
-      <input class="user_input" type="text" id="user_password" name="password" placeholder="password"/><br>
-      <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo"/><br>
+      <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail" /><br>
+      <input class="user_input" type="text" id="user_password" name="password" placeholder="password" /><br>
+      <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo" /><br>
       <input class="user_input" type="text" id="user_location" name="location" placeholder="location" /><br>
-      <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name"/><br>
+      <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name" /><br>
       <button type="submit" id="add_user">SUBMIT!</button>
+      <button type="submit" id="submit_spotify"<i class="fa fa-spotify" style="color: green"></i> <span id="spot">SPOTIFY<span></button>
     </form>
   </div>
+  <div>
   <div id="login">
     <form class="login_user">
       <input class="user_input" type="text" id="existuser_email" name="email" placeholder="e-mail"
@@ -21,7 +23,9 @@
       <button type="submit" id="log_in">LOG IN!</button>
     </form>
   </div>
+  </div>
 </div>
+
 
 <div id="curuser_container"></div>
 

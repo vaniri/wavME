@@ -29,6 +29,6 @@ function findMatch(curUser, allUsers) {
 
 module.exports = { findMatch };
 
-// read more about intersection
+//read more about set and intersection
 //https://medium.com/@alvaro.saburido/set-theory-for-arrays-in-es6-eb2f20a61848 
 //https://stackoverflow.com/questions/31930894/javascript-set-data-structure-intersect

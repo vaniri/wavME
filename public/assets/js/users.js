@@ -64,8 +64,8 @@ $("#user_name").on("blur", () => {
     getLfArtistsFromLastFm($("#user_name").val());
 });
 
-//get user data from last.fm
-function getLfArtistsFromLastFm (userName) {
+//get user artists from last.fm
+function getLfArtistsFromLastFm(userName) {
     $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
         (res) => {
             if (!res) {
@@ -77,6 +77,41 @@ function getLfArtistsFromLastFm (userName) {
             }
         });
 }
+
+//create account with spotify
+$("#submit_spotify").on("click", event => {
+    event.preventDefault();
+    location.href = 'https://accounts.spotify.com/authorize?client_id=973c7a45dcef46e299c4aad1b3bb7587&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2F&scope=user-read-private%20user-read-email%20user-top-read&state=34fFs29kd09';
+});
+
+const searchParams = new URLSearchParams(location.hash.substr(1));
+let spotifyToken = searchParams.get("access_token");
+if (spotifyToken) { 
+    console.log("got access token", spotifyToken);
+    $.ajax({
+        url: "https://api.spotify.com/v1/me",
+        headers: { "Authorization": "Bearer " + spotifyToken },
+        success: res => {
+            console.log(res);
+            $("#user_name").val(res.display_name);
+            $("#user_email").val(res.email);
+        }
+    });
+    $.ajax({
+        url: "https://api.spotify.com/v1/me/top/artists",
+        headers: { "Authorization": "Bearer " + spotifyToken },
+        success: res => {
+            console.log(res);
+            $("#user_artists").val(res.items);
+        }
+    });
+}
+
+
+//https://developer.spotify.com/documentation/general/guides/authorization-guide/
+//https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
+//https://developer.mozilla.org/ru/docs/Web/API/Location
+
 
 //displaying current user 
 function showCurUser(user) {
@@ -104,49 +139,49 @@ function showMatch(users) {
 }
 
 
-//get user geolocation
-//https://stackoverflow.com/questions/6797569/get-city-name-using-geolocation
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-} else {
-    console.log("Browser doesn't support geolocaton");
-}
+// //get user geolocation
+// //https://stackoverflow.com/questions/6797569/get-city-name-using-geolocation
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+// } else {
+//     console.log("Browser doesn't support geolocaton");
+// }
 
-//handle the latitude and the longitude
-function successFunction(position) {
-    console.log(position);
-    let { latitude, longitude } = position.coords;
-    codeLatLng(latitude, longitude);
-}
+// //handle the latitude and the longitude
+// function successFunction(position) {
+//     console.log(position);
+//     let { latitude, longitude } = position.coords;
+//     codeLatLng(latitude, longitude);
+// }
 
-function errorFunction(arg) {
-    console.log("Unable to get current location from the browser");
-}
+// function errorFunction(arg) {
+//     console.log("Unable to get current location from the browser");
+// }
 
-function codeLatLng(lat, lng) {
-    const geocoder = new google.maps.Geocoder();
-    let latlng = new google.maps.LatLng(lat, lng);
-    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-        console.log(results);
-        if (status == google.maps.GeocoderStatus.OK) {
-            if (results[1]) {
-                //find country name
-                for (let i = 0; i < results[0].address_components.length; i++) {
-                    for (let b = 0; b < results[0].address_components[i].types.length; b++) {
-                        //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
-                        if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
-                            city = results[0].address_components[i];
-                            break;
-                        }
-                    }
-                }
-                $("#user_location").val(city.long_name);
+// function codeLatLng(lat, lng) {
+//     const geocoder = new google.maps.Geocoder();
+//     let latlng = new google.maps.LatLng(lat, lng);
+//     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+//         console.log(results);
+//         if (status == google.maps.GeocoderStatus.OK) {
+//             if (results[1]) {
+//                 //find country name
+//                 for (let i = 0; i < results[0].address_components.length; i++) {
+//                     for (let b = 0; b < results[0].address_components[i].types.length; b++) {
+//                         //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+//                         if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+//                             city = results[0].address_components[i];
+//                             break;
+//                         }
+//                     }
+//                 }
+//                 $("#user_location").val(city.long_name);
 
-            } else {
-                console.log("No results found");
-            }
-        } else {
-            console.log("Geocoder failed due to: " + status);
-        }
-    });
-}
+//             } else {
+//                 console.log("No results found");
+//             }
+//         } else {
+//             console.log("Geocoder failed due to: " + status);
+//         }
+//     });
+// }
