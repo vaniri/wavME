@@ -11,13 +11,14 @@ $("#add_user").on("click", event => {
 
     //send newUser to the server
     $.post("/users/", newUser, (res) => {
-        console.log(res);
+        console.log("user for curuser", res);
+        console.log("newuser", newUser);
         if (res.message === "OK") {
             localStorage.token = res.token;
 
             getUserMatch(res.userId);
             showCurUser(newUser);
-        } else { console.log("Failed creating new user"); }
+        } else { alert("username is not available"); }
     });
 });
 
@@ -49,7 +50,7 @@ $("#log_in").on("click", event => {
 
     $.post("/users/login", existUser, (res) => {
         if (res.message !== "OK") {
-            console.log("Login failed");
+            console.log("Login failed: ", res.reason);
         }
 
         localStorage.token = res.token;
@@ -81,7 +82,7 @@ function getLfArtistsFromLastFm (userName) {
 function showCurUser(user) {
     $("#form_user_container").css('display', 'none');
     $("#curuser_container").css('display', 'grid');
-    $("#curuser_container").append(`<div id='curuser_info'><p class='users_p'><span class='username_loc'>Username:</span> ${user.username}</p><p class='users_p'><span class='username_loc'>Location:</span>${user.location}</p><img class='user_photo' src='${user.photo}'></div>`);
+    $("#curuser_container").append(`<div id='curuser_info'><p class='users_p'><span class='username_loc'>Username:</span> ${user.username}</p><p class='users_p'><span class='username_loc'>Location:</span> ${user.location}</p><img class='user_photo' src='${user.photo}'></div>`);
     $("#curuser_container").append("<div id='curuser_artists'><h2>Favorite Artists:</h2><ul class='artists_table'></ul></div>");
     user.artists.forEach(artist => {
         $(".artists_table").append(`<li class='artist'>${artist}</li>`);
@@ -99,6 +100,7 @@ function showMatch(users) {
     };
     let theCompiledHtml = template(html);
     $('#matching_container').append(theCompiledHtml);
+    users.forEach(user => user.matchArtists.forEach(artist => $(`li[data-name="${artist.name}"]`).addClass("match")));
 }
 
 

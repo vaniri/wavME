@@ -4,13 +4,16 @@ function findSimilarity(artists1, artists2) {
 
     let set = new Set(artists2.map(a => a.name.trim()));
     let xSet = artists1.filter(el => set.has(el.name.trim()));
-    return 2 * xSet.length / (artists1.length + artists2.length);
+
+    return { similarity: 2 * xSet.length / (artists1.length + artists2.length), matchArtists: xSet };
 }
 
 //matching users using similarity
 function findMatch(curUser, allUsers) {
     for (let user of allUsers) {
-        user.similarity = findSimilarity(curUser.artists, user.artists);
+        let { similarity, matchArtists } = findSimilarity(curUser.artists, user.artists);
+        user.similarity = similarity;
+        user.matchArtists = matchArtists;
     }
     allUsers.sort((u1, u2) => {
         if (u1.similarity > u2.similarity) {

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../models/db.js");
-const userArtist = require("../models/utils.js")
+const userArtist = require("../utils/utils.js")
 
 
 //render main html page

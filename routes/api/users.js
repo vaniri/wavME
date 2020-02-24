@@ -4,8 +4,8 @@ const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 const db = require('../../models/db');
-const usersArtists = require('../../models/utils.js');
-const matching = require("../../models/matching.js");
+const usersArtists = require('../../utils/utils.js');
+const matching = require('../../utils/matching.js');
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
@@ -70,7 +70,8 @@ function makeToken(userId) {
 
 router.post('/login', async (req, res) => {
   try {
-    let user = await db.User.findOne({ where: { email: req.body.email } });
+    let user = await usersArtists.userwithArtists(req.body.email);
+    console.log(user);
     if (!user) {
       console.log("No user found!");
       res.json({ message: "FAIL", reason: "No user found!" });
@@ -85,14 +86,45 @@ router.post('/login', async (req, res) => {
     }
 
     console.log("Login Successful!");
-    
     res.json({ message: "OK", userId: user.id, token: makeToken(user.id), profile: user });
   } catch (err) {
-    console.log("Error find userr", err);
+    console.log("Error logging in:", err);
     res.json({ message: "FAIL", reason: err });
   }
 })
 
 
+//spotify
+/*
+
+var SpotifyWebApi = require('spotify-web-api-node');
+var spotifyApi = new SpotifyWebApi({
+  clientId: '973c7a45dcef46e299c4aad1b3bb7587',
+  clientSecret: 'd689a6efdce44903bf6f106d648df32e',
+
+});
+
+spotifyApi.clientCredentialsGrant().then(
+  function (data) {
+    console.log('The access token expires in ' + data.body['expires_in']);
+    console.log('The access token is ' + data.body['access_token']);
+
+    // Save the access token so that it's used in future calls
+    spotifyApi.setAccessToken(data.body['access_token']);
+
+    spotifyApi.getUserPlaylists('petteralexis')
+      .then(function (data) {
+        let newdata = data.body.items.map(item => item);
+        console.log("new data", newdata);
+        console.log('Some information about this user', data.body.items[0].tracks);
+      }, function (err) {
+        console.log('Something went wrong!', err);
+      });
+  },
+  function (err) {
+    console.log('Something went wrong when retrieving an access token', err);
+  }
+);
+*/
 
 module.exports = router;
