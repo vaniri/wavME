@@ -1,6 +1,6 @@
-# Spotinder
+# wavME
 
-Spotinder is a Tinder like app matching users based on their music preferences. 
+wavME is a Tinder like app matching users based on their music preferences. 
 
 ## Collaborators:
 
