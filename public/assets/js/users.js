@@ -86,15 +86,14 @@ $("#submit_spotify").on("click", event => {
 
 const searchParams = new URLSearchParams(location.hash.substr(1));
 let spotifyToken = searchParams.get("access_token");
-if (spotifyToken) {
+if (spotifyToken) { 
     console.log("got access token", spotifyToken);
     $.ajax({
         url: "https://api.spotify.com/v1/me",
         headers: { "Authorization": "Bearer " + spotifyToken },
         success: res => {
-            console.log("-----SPOTIFY----");
+            console.log("-------SPOTIFY-USER----")
             console.log(res);
-            console.log("-----SPOTIFY----");
             $("#user_name").val(res.display_name);
             $("#user_email").val(res.email);
         }
@@ -103,10 +102,13 @@ if (spotifyToken) {
         url: "https://api.spotify.com/v1/me/top/artists",
         headers: { "Authorization": "Bearer " + spotifyToken },
         success: res => {
-            console.log(res);
-            $("#user_artists").val(res.items);
+            console.log("-------SPOTIFY-ARTISTS----")
+            console.log(res.items);
+            let artName = (res.items.map(item => item).map(item => item.name));
+            let artStr = artName.toString();
+            $("#user_artists").val(artStr);    
         }
-    });
+        })
 }
 //https://developer.spotify.com/documentation/general/guides/authorization-guide/
 //https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/

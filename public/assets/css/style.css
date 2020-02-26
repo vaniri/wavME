@@ -6,8 +6,6 @@ body {
 
 .navbar {
   text-align: center;
-  border-bottom: 1px solid #ed143de6;
-  border-top: 1px solid #ed143de6;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
