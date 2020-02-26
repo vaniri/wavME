@@ -39,8 +39,6 @@ const jwtSecret = "yo dawg i herd you like authorization";
 router.get('/match/:id',
   expressJwt({ secret: jwtSecret }),
   async (req, res) => {
-    console.log("user token", req.user);
-
     if (+req.user.userId !== +req.params.id) { 
       res.json({ message: "FAIL", reason: "You can't ask for matches of other users" });
       return;

@@ -9,27 +9,26 @@
       <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo" /><br>
       <input class="user_input" type="text" id="user_location" name="location" placeholder="location" /><br>
       <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name" /><br>
-      <button type="submit" id="add_user">SUBMIT!</button>
-      <button type="submit" id="submit_spotify"<i class="fa fa-spotify" style="color: green"></i> <span id="spot">SPOTIFY<span></button>
+      <button type="submit" id="add_user">SUBMIT!</button></br>
+      <h3>or use</h3>
+      <button type="submit" id="submit_spotify" <i class="fa fa-spotify" style="color: green"></i> <span
+          id="spot">SPOTIFY<span></button>
     </form>
   </div>
   <div>
-  <div id="login">
-    <form class="login_user">
-      <input class="user_input" type="text" id="existuser_email" name="email" placeholder="e-mail"
-        value="test@gmail.com" /><br>
-      <input class="user_input" type="text" id="existuser_password" name="password" placeholder="password"
-        value="123456" /><br>
-      <button type="submit" id="log_in">LOG IN!</button>
-    </form>
-  </div>
+    <div id="login">
+      <form class="login_user">
+        <input class="user_input" type="text" id="existuser_email" name="email" placeholder="e-mail" /><br>
+        <input class="user_input" type="text" id="existuser_password" name="password" placeholder="password" /><br>
+        <button type="submit" id="log_in">LOG IN!</button>
+      </form>
+    </div>
   </div>
 </div>
 
-
-<div id="curuser_container"></div>
-
-<script id="template-hbs" type="text/x-handlebars-template">
+<div id="user_page">
+  <div id="curuser_container"></div>
+  <script id="template-hbs" type="text/x-handlebars-template">
   <div id="usersmatch_container">
     [{#each user}]
     <div class="usermatch_info">
@@ -48,9 +47,10 @@
     </div>
     [{/each}]
 </div>
+</div>
 </script>
 
-<div id="matching_container"></div>
+  <div id="matching_container"></div>
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key="></script>
-<script src="/assets/js/users.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key="></script>
+  <script src="/assets/js/users.js"></script>

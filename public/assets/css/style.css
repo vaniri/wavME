@@ -27,14 +27,13 @@ body {
   border-radius: 67px;
 }
 
-
 .logo {
-    margin-right: 5rem;
-    font-size: 1.5rem;
-    line-height: inherit;
-    text-decoration: none;
-    padding: 1em 0;
-    font-family: "Source Code Pro";
+  margin-right: 5rem;
+  font-size: 1.5rem;
+  line-height: inherit;
+  text-decoration: none;
+  padding: 1em 0;
+  font-family: "Source Code Pro";
 }
 
 .nav {
@@ -56,9 +55,9 @@ body {
 
 a {
   color: #333;
-    text-decoration: underline;
-    background-color: transparent;
-    font-weight: 600;
+  text-decoration: underline;
+  background-color: transparent;
+  font-weight: 600;
 }
 
 form {
@@ -68,6 +67,7 @@ form {
   padding: 27px 36px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 
 #form_user_container {
@@ -75,12 +75,12 @@ form {
   background-color: #1f2221;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: white;
   background-position: center;
   width: 80%;
   margin: 4em auto;
   padding: 3em 0;
   text-align: center;
+  background-color: #202322;
 }
 
 #login {
@@ -110,7 +110,7 @@ input {
   background-color: #eaeaea;
   padding: 0.8em 3em;
   border-radius: 8px;
-  margin: 2em 0;
+  margin: 2em 0 0 0;
   border: none;
   color: black;
   font-size: 12px;
@@ -126,7 +126,8 @@ input {
 }
 
 #add_user:hover,
-#log_in:hover {
+#log_in:hover,
+#submit_spotify:hover  {
   animation: pulse 1.5s infinite;
 }
 
@@ -160,11 +161,10 @@ input {
   background-color: black;
   color: white;
   border: none;
-  padding: 0.8em 2em;
+  padding: 1em 2em;
   border-radius: 8px;
-  margin: 2em 0 0 1em;
   border: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -175,7 +175,7 @@ input {
 }
 
 #spot {
-  color: white
+  color: white;
 }
 
 .user_photo_main {
@@ -196,10 +196,8 @@ h2 {
 #curuser_container {
   display: none;
   margin: 1em auto;
-  padding: 2em;
-  width: 95%;
+  padding: 2.3em;
 }
-
 
 .artist {
   text-align: -webkit-match-parent;
@@ -233,10 +231,10 @@ li {
 }
 
 .usermatch_info {
-  border: solid 2px #b9c558;
-  margin: 0 0.5em;
+  margin: 0 0.2em;
   padding: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #202322;
 }
 
 #allUsers_container {
@@ -262,3 +260,19 @@ li {
   color: red;
 }
 
+#user_page {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  background-image: linear-gradient(357deg, #202322, #b9c5585c, transparent);
+  margin: 3em auto;
+}
+
+h3 {
+  color: blanchedalmond;
+  margin: 0.5em;
+  font-weight: 200;
+}
+
+::placeholder {
+  color: rgb(172, 172, 172);
+}
