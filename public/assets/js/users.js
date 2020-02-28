@@ -12,7 +12,6 @@ $("#add_user").on("click", event => {
     //send newUser to the server
     $.post("/users/", newUser, (res) => {
         console.log("user for curuser", res);
-        console.log("newuser", newUser);
         if (res.message === "OK") {
             localStorage.token = res.token;
 
@@ -92,8 +91,6 @@ if (spotifyToken) {
         url: "https://api.spotify.com/v1/me",
         headers: { "Authorization": "Bearer " + spotifyToken },
         success: res => {
-            console.log("-------SPOTIFY-USER----")
-            console.log(res);
             $("#user_name").val(res.display_name);
             $("#user_email").val(res.email);
         }
@@ -102,10 +99,8 @@ if (spotifyToken) {
         url: "https://api.spotify.com/v1/me/top/artists",
         headers: { "Authorization": "Bearer " + spotifyToken },
         success: res => {
-            console.log("-------SPOTIFY-ARTISTS----")
-            console.log(res.items);
-            let artName = (res.items.map(item => item).map(item => item.name));
-            let artStr = artName.toString();
+            let artistsName = res.items.map(item => item.name);
+            let artStr = artistsName.join(",");
             $("#user_artists").val(artStr);    
         }
         })
@@ -118,9 +113,9 @@ if (spotifyToken) {
 //displaying current user 
 function showCurUser(user) {
     $("#form_user_container").css('display', 'none');
-    $("#curuser_container").css('display', 'grid');
-    $("#curuser_container").append(`<div id='curuser_info'><p class='users_p'><span class='username_loc'>Username:</span> ${user.username}</p><p class='users_p'><span class='username_loc'>Location:</span> ${user.location}</p><img class='user_photo' src='${user.photo}'></div>`);
-    $("#curuser_container").append("<div id='curuser_artists'><h2>Favorite Artists:</h2><ul class='artists_table'></ul></div>");
+    $("#curuser_container").css('display', 'block');
+    $("#curuser_container").append(`<p class='users_p'><span class='username_loc'>Username:</span> ${user.username}</p><p class='users_p'><span class='username_loc'>Location:</span> ${user.location}</p><img class='user_photo' src='${user.photo}'>`);
+    $("#curuser_container").append("<h2>Favorite Artists:</h2><ul class='artists_table'></ul>");
     user.artists.forEach(artist => {
         $(".artists_table").append(`<li class='artist'>${artist}</li>`);
     })
