@@ -2,7 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
 
 body {
-  background-color: #202322;
+  /* background-color: #202322; */
+  background-image: url(../../assets/images/punkweb.png);
+  background-size: cover;
+
 }
 
 .navbar {
@@ -21,18 +24,23 @@ body {
   justify-content: space-between;
   padding: 0.5rem 1rem;
 }
+#nav{
+  /* background-color: #202322;
+  margin-block-end: 0%; */
+}
 
 #nav_img {
-  border-radius: 67px;
+  /* border-radius: 67px; */
 }
 
 .logo {
   margin-right: 5rem;
-  font-size: 2.5rem;
+  font-size:  3rem;
   line-height: inherit;
   text-decoration: none;
   padding: 1em 0;
   font-family:'Lacquer';
+  color: #f96167;
 }
 
 .nav {
@@ -51,10 +59,11 @@ body {
   display: block;
   padding: 0.5rem 1rem;
   font-family: "Poppins";
+  font-size: x-large;
 }
 
 a {
-  color: #333;
+  color: #e0db11;
   text-decoration: underline;
   background-color: transparent;
   font-weight: 600;
@@ -66,7 +75,7 @@ a {
 form {
   width: 35%;
   margin: auto;
-  background-color: #ed143de6;
+  background-color: #151414bf;
   padding: 27px 36px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -74,16 +83,15 @@ form {
 }
 
 #form_user_container {
-  background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/58/headphones-690685__340.jpg);
-  background-color: #1f2221;
+ 
   background-repeat: no-repeat;
-  background-size: cover;
+  
   background-position: center;
   width: 80%;
   margin: 4em auto;
   padding: 3em 0;
   text-align: center;
-  background-color: #202322;
+  /* background-color: #202322; */
 }
 
 #login {
@@ -95,7 +103,7 @@ input {
   width: 100%;
   background-color: initial;
   border: none;
-  border-bottom: 0.2px solid tomato;
+  border-bottom: 0.2px solid #b3ea20;
   color: white;
   padding: 2px 0 10px 0;
   font-size: 15px;
@@ -103,7 +111,7 @@ input {
 }
 
 #create_acc {
-  color: blanchedalmond;
+  color: #def14a;
   margin: 0 0 1em 0;
   font-weight: 800;
 }
@@ -213,7 +221,7 @@ h2 {
 }
 
 a {
-  color: blanchedalmond;
+  color: #def14a;
   font-weight: 600;
 }
 
