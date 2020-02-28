@@ -17,7 +17,7 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="/" method="POST" id="chatForm">
+    <form action="/chat" method="POST" id="chatForm">
       <input id="txt" autocomplete="off" autofocus="on" oninput="isTyping()" placeholder="type your message here..." /><button>Send</button>
     </form>
     <script>
@@ -44,7 +44,6 @@
             // ask username
             var username = prompt('Please tell me your name');
             socket.emit('username', username);
-
     </script>
   </body>
 </html>

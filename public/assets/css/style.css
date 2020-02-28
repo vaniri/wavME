@@ -117,7 +117,8 @@ input {
 }
 
 #add_user,
-#log_in {
+#log_in,
+#chat_button {
   background-color: #eaeaea;
   padding: 0.8em 3em;
   border-radius: 8px;
@@ -133,6 +134,19 @@ input {
 #log_in:hover {
   background-color: #f96167;
   color: white;
+  cursor: pointer;
+}
+
+#chat_button {
+  background-color: #b9c558;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+
+#chat_button:hover {
+  background-color: black;
+  color: #b9c558;
   cursor: pointer;
 }
 
@@ -223,6 +237,7 @@ h2 {
 a {
   color: #def14a;
   font-weight: 600;
+  text-decoration: none;
 }
 
 li {
