@@ -17,7 +17,7 @@ $("#add_user").on("click", event => {
 
             getUserMatch(res.userId);
             showCurUser(newUser);
-        } else { alert("username is not available"); }
+        } else { alert("username or email is not available"); }
     });
 });
 
@@ -58,12 +58,11 @@ $("#log_in").on("click", event => {
     });
 });
 
-//send username to the lastFm after enter
+//create account with lastFm 
 $("#user_name").on("blur", () => {
     getLfArtistsFromLastFm($("#user_name").val());
 });
 
-//get user artists from last.fm
 function getLfArtistsFromLastFm(userName) {
     $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
         (res) => {

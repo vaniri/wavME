@@ -1,9 +1,9 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const app = express();
 const path = require("path");
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const sio = require('socket.io')
+
+const app = express();
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -18,6 +18,10 @@ app.use(require('./routes/api'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+const io = sio.listen(
+app.listen(process.env.PORT || PORT, () => {
+  console.log(`server running on ${process.env.PORT || PORT}`);
+}));
 io.sockets.on('connection', function(socket) {
   socket.on('username', function(username) {
       socket.username = username;
@@ -31,8 +35,4 @@ io.sockets.on('connection', function(socket) {
   socket.on('chat_message', function(message) {
       io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
   });
-});
-
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`server running on ${process.env.PORT || PORT}`);
 });

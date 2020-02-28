@@ -289,7 +289,7 @@ li {
 #user_page {
   display: grid;
   grid-template-columns: 30% 70%;
-  background-image: linear-gradient(357deg, #202322, #b9c5585c, transparent);
+  background-image: linear-gradient(731deg, #dd287fd1, #202322, transparent);
   margin: 3em auto;
 }
 
@@ -301,4 +301,10 @@ h3 {
 
 ::placeholder {
   color: rgb(172, 172, 172);
+}
+
+#chat_link {
+  color: #d12678c4;
+  font-weight: 800;
+  font-size: 15px;
 }

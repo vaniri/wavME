@@ -13,9 +13,9 @@ router.get("/all", async (req, res) => {
   res.render("allusers", { user: await userArtist.userswithArtists() });
 });
 
-//chat
+//renderchat
 router.get("/chat", (req, res) => {
-  res.sendFile(path.join(__dirname, "../chat/views/index.html"));
+  res.sendFile(path.join(__dirname, "../views/index.html"));
 });
 
 module.exports = router;
