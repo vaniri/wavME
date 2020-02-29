@@ -64,7 +64,7 @@ $("#user_name").on("blur", () => {
 });
 
 function getLfArtistsFromLastFm(userName) {
-    $.get(`http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
+    $.get(`https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userName}&api_key=a5ca8821e39cdb5efd2e5667070084b2&format=json`,
         (res) => {
             if (!res) {
                 console.log("FAIL get data");
