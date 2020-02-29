@@ -24,7 +24,7 @@ function findMatch(curUser, allUsers) {
     });
 
     //return 3 most similar users
-    return allUsers.slice(0, 3);
+    return allUsers.slice(0, 3).filter(user => user.similarity !== 0);
 }
 
 module.exports = { findMatch };

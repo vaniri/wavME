@@ -1,14 +1,13 @@
 <div id="form_user_container">
   <div id="create">
-    <form class="create_user">
+    <form id="create_user">
       <h2 id="create_acc">Create an account!</h2>
-      <input class="user_input" type="text" id="user_name" name="name" placeholder="name/last_fm nickname" /><br>
-      <span class="spin"></span>
-      <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail" /><br>
-      <input class="user_input" type="text" id="user_password" name="password" placeholder="password" /><br>
+      <input class="user_input" type="text" id="user_name" name="name" placeholder="name/last_fm nickname" required /><br>
+      <input class="user_input" type="text" id="user_email" name="email" placeholder="e-mail" required /><br>
+      <input class="user_input" type="text" id="user_password" name="password" placeholder="password" required /><br>
       <input class="user_input" type="text" id="user_photo" name="photo" placeholder="photo" /><br>
       <input class="user_input" type="text" id="user_location" name="location" placeholder="location" /><br>
-      <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name" /><br>
+      <input class="user_input" type="text" id="user_artists" name="artists" placeholder="bands name" required /><br>
       <button type="submit" id="add_user">SUBMIT!</button></br>
       <h3>or use</h3>
       <button type="submit" id="submit_spotify" <i class="fa fa-spotify" style="color: green"></i> <span
@@ -17,9 +16,9 @@
   </div>
   <div>
     <div id="login">
-      <form class="login_user">
-        <input class="user_input" type="text" id="existuser_email" name="email" placeholder="e-mail" /><br>
-        <input class="user_input" type="text" id="existuser_password" name="password" placeholder="password" /><br>
+      <form id="login_form">
+        <input class="user_input" type="text" id="existuser_email" name="email" placeholder="e-mail" required /><br>
+        <input class="user_input" type="text" id="existuser_password" name="password" placeholder="password" required /><br>
         <button type="submit" id="log_in">LOG IN!</button>
       </form>
     </div>
@@ -32,10 +31,13 @@
   <div id="usersmatch_container">
     [{#each user}]
     <div class="usermatch_info">
-        <h2>User info:</h2>
+        <h2>Matching user:</h2>
         <p class="users_p"><span class="username_loc">Username:</span> [{username}]</p>
         <p class="users_p"><span class="username_loc">Location:</span> [{location}]</p>
         <img class="user_photo" src="[{photo}]">
+        <div class="chat_button_container">
+          <button class="chat_button"><a class="chat_link" href="/chat">CHAT</a></button>
+        </div>
         <h2>Favorite Artists:</h2>
         <ul class="artists_table">
             [{#each artists}]
@@ -44,7 +46,6 @@
             </li>
             [{/each}]
         </ul>
-        <button type="" id="chat_button"><a id="chat_link" href="/chat">Chat</a></button>
     </div>
     [{/each}]
 </div>

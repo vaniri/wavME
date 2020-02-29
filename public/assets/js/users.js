@@ -1,5 +1,5 @@
 //get user input value
-$("#add_user").on("click", event => {
+$("#create_user").on("submit", event => {
     event.preventDefault();
     let username = $("#user_name").val();
     let email = $("#user_email").val();
@@ -40,7 +40,7 @@ function getUserMatch(userId) {
     });
 }
 
-$("#log_in").on("click", event => {
+$("#login_form").on("submit", event => {
     event.preventDefault();
     let email = $("#existuser_email").val();
     let password = $("#existuser_password").val();
@@ -113,7 +113,7 @@ if (spotifyToken) {
 function showCurUser(user) {
     $("#form_user_container").css('display', 'none');
     $("#curuser_container").css('display', 'block');
-    $("#curuser_container").append(`<p class='users_p'><span class='username_loc'>Username:</span> ${user.username}</p><p class='users_p'><span class='username_loc'>Location:</span> ${user.location}</p><img class='user_photo' src='${user.photo}'>`);
+    $("#curuser_container").append(`<p class='curuser_p'><span class='curuser_name'>Username:</span> ${user.username}</p><p class='curuser_p'><span class='curuser_loc'>Location:</span> ${user.location}</p><img class='user_photo' src='${user.photo}'>`);
     $("#curuser_container").append("<h2>Favorite Artists:</h2><ul class='artists_table'></ul>");
     user.artists.forEach(artist => {
         $(".artists_table").append(`<li class='artist'>${artist}</li>`);

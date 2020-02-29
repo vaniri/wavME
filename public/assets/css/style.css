@@ -2,10 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
 
 body {
-  /* background-color: #202322; */
   background-image: url(../../assets/images/secondattemp.png);
   background-size: cover;
-
 }
 
 .navbar {
@@ -23,14 +21,6 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-}
-#nav{
-  /* background-color: #202322;
-  margin-block-end: 0%; */
-}
-
-#nav_img {
-  /* border-radius: 67px; */
 }
 
 .logo {
@@ -64,12 +54,19 @@ body {
 
 a {
   color: #e0db11;
-  text-decoration: underline;
   background-color: transparent;
   font-weight: 600;
+  text-decoration: none;
 }
+
+a:hover {
+cursor: pointer;
+color: black;
+transition: ease-out 0.7s;
+}
+
 #navnav{
-  font-family: "La"
+  font-family: "La";
 }
 
 form {
@@ -118,7 +115,7 @@ input {
 
 #add_user,
 #log_in,
-#chat_button {
+.chat_button {
   background-color: #eaeaea;
   padding: 0.8em 3em;
   border-radius: 8px;
@@ -137,17 +134,31 @@ input {
   cursor: pointer;
 }
 
-#chat_button {
-  background-color: #b9c558;
+.chat_button {
+  background-color: #EAEAEA;
   font-weight: 600;
   text-decoration: none;
   color: black;
 }
 
-#chat_button:hover {
+.chat_button:hover {
   background-color: black;
-  color: #b9c558;
+  color: #dd287fd1;
   cursor: pointer;
+  transition: ease-out 0.7s;
+}
+
+.chat_link {
+  color: tomato;
+    background-color: transparent;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.chat_link:hover {
+  cursor: pointer;
+  color: tomato;
 }
 
 #add_user:hover,
@@ -226,19 +237,26 @@ h2 {
 
 .artist {
   text-align: -webkit-match-parent;
+  font-weight: 600;
+  color: black;
 }
 
-.username_loc {
+.username_loc,
+.curuser_name,
+.curuser_loc {
   font-weight: 600;
   font-family: "Poppins";
-  color: #b9c558;
+  color: #fb0bfd;
 }
 
-a {
-  color: #def14a;
+.curuser_name,
+.curuser_loc {
   font-weight: 600;
-  text-decoration: none;
+  font-family: "Poppins";
+  font-size: 17px;
+  color: darkviolet;
 }
+
 
 li {
   color: #eaeaea;
@@ -251,6 +269,10 @@ li {
   font-family: "Source Code Pro";
 }
 
+.curuser_p {
+  color: floralwhite;
+  font-size: 20px;
+}
 #usersmatch_container {
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -289,7 +311,7 @@ li {
 #user_page {
   display: grid;
   grid-template-columns: 30% 70%;
-  background-image: linear-gradient(731deg, #dd287fd1, #202322, transparent);
+  background-image: linear-gradient(617deg, #d4cacf52, #332f33a1, transparent);
   margin: 3em auto;
 }
 
@@ -303,8 +325,3 @@ h3 {
   color: rgb(172, 172, 172);
 }
 
-#chat_link {
-  color: #d12678c4;
-  font-weight: 800;
-  font-size: 15px;
-}
