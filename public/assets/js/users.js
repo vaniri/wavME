@@ -79,7 +79,11 @@ function getLfArtistsFromLastFm(userName) {
 //create account with spotify
 $("#submit_spotify").on("click", event => {
     event.preventDefault();
-    location.href = 'https://accounts.spotify.com/authorize?client_id=973c7a45dcef46e299c4aad1b3bb7587&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2F&scope=user-read-private%20user-read-email%20user-top-read&state=34fFs29kd09';
+    //https://developer.mozilla.org/ru/docs/Web/API/Location
+    let callbackUrl = `${location.protocol}//${location.host}/`;
+    //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+    let encodedUrl = encodeURIComponent(callbackUrl);
+    location.href = `https://accounts.spotify.com/authorize?client_id=973c7a45dcef46e299c4aad1b3bb7587&response_type=token&redirect_uri=${encodedUrl}&scope=user-read-private%20user-read-email%20user-top-read&state=34fFs29kd09`;
 });
 
 const searchParams = new URLSearchParams(location.hash.substr(1));
