@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userArtist = require("../utils/utils.js")
 const path = require("path");
+const db = require('../models/db');
 
 //render main html page
 router.get("/", async (req, res) => {
