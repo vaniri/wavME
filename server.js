@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // const io = sio.listen(
   app.listen(process.env.PORT || PORT, () => {
     console.log(`server running on ${process.env.PORT || PORT}`);
-  // }));
+  });
 
 // io.sockets.on('connection', function (socket) {
 //   socket.on('username', function (username) {
@@ -35,4 +35,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   socket.on('chat_message', function (message) {
 //     io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
 //   });
-});
+// });

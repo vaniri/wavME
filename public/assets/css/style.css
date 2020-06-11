@@ -15,12 +15,6 @@ body {
   list-style: none;
 }
 
-.nav-link {
-  text-decoration: none;
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: x-large;
-}
 
 a {
   color: royalblue;
@@ -46,7 +40,7 @@ transition: ease-out 0.7s;
 form {
   width: 35%;
   margin: auto;
-  background-color: #151414a3;
+  background-color: #101010de;
   padding: 27px 36px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -56,11 +50,12 @@ form {
 #form_user_container {
   background-repeat: no-repeat;
   background-position: center;
-  width: 80%;
   margin: 4em auto;
   padding: 3em 0;
   text-align: center;
-
+  background-image: url(https://www.music-ministry.org/wp-content/uploads/2018/03/featured-default-no-icon.jpg);
+  background-color: black;
+  background-size: cover; 
 }
 
 #login {
@@ -72,7 +67,7 @@ input {
   width: 100%;
   background-color: initial;
   border: none;
-  border-bottom: 0.2px solid #b3ea20;
+  border-bottom: 0.2px solid #ddf149bb;
   color: white;
   padding: 2px 0 10px 0;
   font-size: 15px;
@@ -113,7 +108,7 @@ h5 {
 
 #add_user:hover,
 #log_in:hover {
-  background-color: #f96167;
+  background-color: #7a70ff;
   color: white;
   cursor: pointer;
 }
@@ -153,10 +148,10 @@ h5 {
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 #f29094;
+    -webkit-box-shadow: 0 0 0 0 #7a70ff;
   }
   70% {
-    -webkit-box-shadow: 0 0 0 10px #f29094;
+    -webkit-box-shadow: 0 0 0 10px #7a70ff;
   }
   100% {
     -webkit-box-shadow: 0 0 0 0 rgba(242, 56, 56, 0);
@@ -164,8 +159,8 @@ h5 {
 }
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 #f29094;
-    box-shadow: 0 0 0 0 #f29094;
+    -moz-box-shadow: 0 0 0 0 #7a70ff;
+    box-shadow: 0 0 0 0 #7a70ff;
   }
   70% {
     -moz-box-shadow: 0 0 0 20px rgba(242, 56, 56, 0);
@@ -295,3 +290,12 @@ li {
 }
 
 
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 0.1em;
+  border: solid 0.05em;
+  border-radius: 50% 50%;
+  color: #def149;
+  width: 30px;
+}
