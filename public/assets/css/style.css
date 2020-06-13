@@ -1,6 +1,6 @@
 body {
   background-size: cover;
-  background-image: linear-gradient(326deg, mediumslateblue, transparent);
+  background-image: linear-gradient(449deg, mediumslateblue, transparent);
   font-family: 'Source Serif Pro', serif;;
 }
 
@@ -29,11 +29,33 @@ color: black;
 transition: ease-out 0.7s;
 }
 
+#nav-icons,
+#logo {
+  font-size: 3em;
+}
+
 #logo {
   font-family: 'Architects Daughter', cursive;
-  color: #7a70ff;
+  margin-left: 1em;
+  color: lavender;
   letter-spacing: inherit;
-  font-size: 3em;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 0.1em;
+  border: solid 0.05em;
+  border-radius: 50% 50%;
+  color: #def149;
+  width: 35px;
+}
+
+
+svg:hover {
+  color: black;
+  border: none;
+  background-color: #def149;
 }
 
 
@@ -89,7 +111,7 @@ h5 {
 }
 
 ::placeholder {
-  color: rgb(172, 172, 172);
+  color: rgba(238, 234, 234, 0.39);
 }
 
 #add_user,
@@ -216,7 +238,7 @@ h2 {
 .artist {
   text-align: -webkit-match-parent;
   font-weight: 600;
-  color: black;
+  color: white;
 }
 
 .username_loc,
@@ -267,10 +289,9 @@ li {
 }
 
 .allusers_info {
-  background-color: #202322;
+  background-color: #040404d9;
   padding: 1.5em;
   margin: 0.5em;
-  border: solid 2px #fc5356;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -285,17 +306,8 @@ li {
 #user_page {
   display: grid;
   grid-template-columns: 30% 70%;
-  background-image: linear-gradient(617deg, #d4cacf52, #332f33a1, transparent);
+  background-image: linear-gradient(449deg, #332f338a, transparent);
   margin: 3em auto;
 }
 
 
-svg {
-  overflow: hidden;
-  vertical-align: middle;
-  padding: 0.1em;
-  border: solid 0.05em;
-  border-radius: 50% 50%;
-  color: #def149;
-  width: 30px;
-}
