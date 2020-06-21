@@ -13,6 +13,7 @@ Users can create accounts, add their favotire bands manually or using Spotify an
 * Handlebars
 * HTML/CSS
 * Node.js
+* jQuery
 * MySQL
 * Bootstrap
 * authentication bild with argon 2, express-jvt and jsonwebtoken
